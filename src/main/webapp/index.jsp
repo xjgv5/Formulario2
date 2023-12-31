@@ -30,7 +30,8 @@
     <form action="/webapp-form-tarea2/form" method="post" class="col-8">
         <div class="mb-3">
             <label for="name" class="form-label">Nombre</label>
-            <input type="text" class="form-control <% if(errores!= null && errores.containsKey("name")) out.println("is-invalid"); %>" id="name" name="name" placeholder="Tu nombre">
+            <input type="text" class="form-control <% if(errores!= null && errores.containsKey("name")) out.println("is-invalid"); %>"
+                   id="name" name="name" placeholder="Tu nombre" value="${param.name}">
             <%
                 if (errores!= null && errores.containsKey("name")){
                     out.println("<div class='invalid-feedback'>El nombre no puede estar vacio</div>");
@@ -40,7 +41,8 @@
         </div>
         <div class="mb-3">
             <label for="price" class="form-label">Precio</label>
-            <input type="text" class="form-control <% if(errores!= null && errores.containsKey("price")) out.println("is-invalid"); %>" id="price" name="price" placeholder="$1,000.00">
+            <input type="text" class="form-control <% if(errores!= null && errores.containsKey("price")) out.println("is-invalid"); %>"
+                   id="price" name="price" placeholder="$1,000.00" value="${param.price}">
             <%
                 if (errores!= null && errores.containsKey("price")){
                     out.println("<div class='invalid-feedback'>El precio no puede estar vacio</div>");
@@ -49,8 +51,8 @@
         </div>
         <div class="mb-3">
             <label for="name" class="form-label">Fabricante</label>
-            <input type="text" class="form-control <% if(errores!= null && errores.containsKey("manufacturer")) out.println("is-invalid"); %>" id="manufacturer" name="manufacturer"
-                   placeholder="Nombre de la compañia">
+            <input type="text" class="form-control <% if(errores!= null && errores.containsKey("manufacturer")) out.println("is-invalid"); %>"
+                   id="manufacturer" name="manufacturer" placeholder="Nombre de la compañia" value="${param.manufacturer}">
             <%
                 if (errores!= null && errores.containsKey("manufacturer")){
                     out.println("<div class='invalid-feedback'>Debes ingresar el nombre del fabricante</div>");
@@ -59,11 +61,12 @@
         </div>
         <div class="mb-3">
             <label for="pais" class="form-label">Pais</label>
-            <select name="pais" class="form-select <% if(errores!= null && errores.containsKey("pais")) out.println("is-invalid"); %>" id="pais">
-                <option value="" selected>-- Selecciona un pais --</option>
-                <option value="MX">México</option>
-                <option value="CO">Colombia</option>
-                <option value="AR">Argentina</option>
+            <select name="pais" class="form-select <% if(errores!= null && errores.containsKey("pais")) out.println("is-invalid"); %>"
+                    id="pais">
+                <option value="">-- Selecciona un pais --</option>
+                <option value="MX" ${param.pais.equals("MX") ? "selected" : ""}>México</option>
+                <option value="CO" ${param.pais.equals("CO") ? "selected" : ""}>Colombia</option>
+                <option value="AR" ${param.pais.equals("AR") ? "selected" : ""}>Argentina</option>
             </select>
             <%
                 if (errores!= null && errores.containsKey("pais")){
