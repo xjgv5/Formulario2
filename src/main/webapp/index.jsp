@@ -57,6 +57,20 @@
                 }
             %>
         </div>
+        <div class="mb-3">
+            <label for="pais" class="form-label">Pais</label>
+            <select name="pais" class="form-select <% if(errores!= null && errores.containsKey("pais")) out.println("is-invalid"); %>" id="pais">
+                <option value="" selected>-- Selecciona un pais --</option>
+                <option value="MX">México</option>
+                <option value="CO">Colombia</option>
+                <option value="AR">Argentina</option>
+            </select>
+            <%
+                if (errores!= null && errores.containsKey("pais")){
+                    out.println("<div class='invalid-feedback'>Debes seleccionar un pais</div>");
+                }
+            %>
+        </div>
         <input type="submit" class="btn btn-success" value="Enviar">
     </form>
 </div> <!-- Fin del container -->

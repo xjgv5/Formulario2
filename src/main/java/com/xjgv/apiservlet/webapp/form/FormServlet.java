@@ -20,6 +20,9 @@ public class FormServlet extends HttpServlet {
         String nombre = req.getParameter("name");
         String precio = req.getParameter("price");
         String fabricante = req.getParameter("manufacturer");
+        String pais = req.getParameter("pais");
+
+
         resp.setContentType("text/html");
         Map<String, String> errores = new HashMap<>();
         if (nombre == null || nombre.isBlank()){
@@ -30,6 +33,9 @@ public class FormServlet extends HttpServlet {
         }
         if (fabricante == null || fabricante.isBlank()){
             errores.put("manufacturer", "Debe especificar el fabricante");
+        }
+        if (pais == null || pais.isBlank()) {
+            errores.put("pais","El país es requerido");
         }
 
         if (errores.isEmpty()){
@@ -53,6 +59,7 @@ public class FormServlet extends HttpServlet {
                 out.println("                       <th scope='col'>Nombre</th>");
                 out.println("                       <th scope='col'>Precio</th>");
                 out.println("                       <th scope='col'>Fabricante</th>");
+                out.println("                       <th scope='col'>Pais</th>");
                 out.println("                   </tr>");
                 out.println("               </thead>");
                 out.println("               <tbody>");
@@ -61,6 +68,7 @@ public class FormServlet extends HttpServlet {
                 out.println("                       <td>" + nombre +"</td>");
                 out.println("                       <td>" + precio +"</td>");
                 out.println("                       <td>" + fabricante +"</td>");
+                out.println("                       <td>" + pais +"</td>");
                 out.println("                   </tr>");
                 out.println("               </tbody>");
 //                out.println("           <p>Nombre: " + nombre + "</p>");
