@@ -36,9 +36,11 @@ public class FormServlet extends HttpServlet {
             try (PrintWriter out = resp.getWriter()) {
 
                 out.println("<!DOCTYPE html>");
-                out.println("<html>");
+                out.println("<html data-bs-theme=\"dark\">");
                 out.println("     <head>");
                 out.println("         <meta charset=\" UTF-8\">");
+                out.println("    <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css\" rel=\"stylesheet\"\n" +
+                        "          integrity=\"sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN\" crossorigin=\"anonymous\">");
                 out.println("         <title></title>");
                 out.println("     </head>");
                 out.println("     <body>");
