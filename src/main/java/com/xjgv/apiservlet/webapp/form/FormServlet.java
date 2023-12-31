@@ -41,13 +41,32 @@ public class FormServlet extends HttpServlet {
                 out.println("         <meta charset=\" UTF-8\">");
                 out.println("    <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css\" rel=\"stylesheet\"\n" +
                         "          integrity=\"sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN\" crossorigin=\"anonymous\">");
-                out.println("         <title></title>");
+                out.println("         <title>Formulario</title>");
                 out.println("     </head>");
                 out.println("     <body>");
-                out.println("         <h1>Datos</h1>");
-                out.println("         <h1>Nombre: " + nombre + "</h1>");
-                out.println("         <h1>Precio: $" + precio + "</h1>");
-                out.println("         <h1>Fabricante: " + fabricante + "</h1>");
+                out.println("         <div class='container mt-5'>");
+                out.println("           <h1>Datos enviados con éxito</h1>");
+                out.println("           <table class='table'>");
+                out.println("               <thead>");
+                out.println("                   <tr>");
+                out.println("                       <th scope='col'>#</th>");
+                out.println("                       <th scope='col'>Nombre</th>");
+                out.println("                       <th scope='col'>Precio</th>");
+                out.println("                       <th scope='col'>Fabricante</th>");
+                out.println("                   </tr>");
+                out.println("               </thead>");
+                out.println("               <tbody>");
+                out.println("                   <tr>");
+                out.println("                       <th scope='row'>1</th>");
+                out.println("                       <td>" + nombre +"</td>");
+                out.println("                       <td>" + precio +"</td>");
+                out.println("                       <td>" + fabricante +"</td>");
+                out.println("                   </tr>");
+                out.println("               </tbody>");
+//                out.println("           <p>Nombre: " + nombre + "</p>");
+//                out.println("           <p>Precio: $" + precio + "</p>");
+//                out.println("           <p>Fabricante: " + fabricante + "</p>");
+                out.println("         </div>");
                 out.println("     </body>");
                 out.println("</html>");
             }
