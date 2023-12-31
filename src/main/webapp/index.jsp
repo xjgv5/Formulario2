@@ -25,39 +25,37 @@
     </div>
 </nav>
 
-<%
-    if (errores != null && errores.size() > 0) {
-%>
-<ul class="alert alert-danger my-5">
-    <% for (String error : errores.values()) {%>
-    <li><%=error%>
-    </li>
-    <% } %>
-</ul>
-<%
-    }
-%>
-
 <div class="container d-flex flex-column justify-content-center align-items-center">
     <h1>Formulario de envío</h1>
-    <form action="/webapp-form-tarea2/form" method="post" class="col-8 needs-validation" novalidate>
+    <form action="/webapp-form-tarea2/form" method="post" class="col-8">
         <div class="mb-3">
             <label for="name" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="name" name="name" placeholder="Tu nombre" required>
+            <input type="text" class="form-control <% if(errores!= null && errores.containsKey("name")) out.println("is-invalid"); %>" id="name" name="name" placeholder="Tu nombre">
             <%
                 if (errores!= null && errores.containsKey("name")){
-                    out.println("<div class='invalid-feedback'>Debes ingresar tu nombre</div>");
+                    out.println("<div class='invalid-feedback'>El nombre no puede estar vacio</div>");
+                }
+            %>
+
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label">Precio</label>
+            <input type="text" class="form-control <% if(errores!= null && errores.containsKey("price")) out.println("is-invalid"); %>" id="price" name="price" placeholder="$1,000.00">
+            <%
+                if (errores!= null && errores.containsKey("name")){
+                    out.println("<div class='invalid-feedback'>El nombre no puede estar vacio</div>");
                 }
             %>
         </div>
         <div class="mb-3">
-            <label for="price" class="form-label">Precio</label>
-            <input type="text" class="form-control" id="price" name="price" placeholder="$1,000.00">
-        </div>
-        <div class="mb-3">
             <label for="name" class="form-label">Fabricante</label>
-            <input type="text" class="form-control" id="manufacturer" name="manufacturer"
+            <input type="text" class="form-control <% if(errores!= null && errores.containsKey("manufacturer")) out.println("is-invalid"); %>" id="manufacturer" name="manufacturer"
                    placeholder="Nombre de la compañia">
+            <%
+                if (errores!= null && errores.containsKey("name")){
+                    out.println("<div class='invalid-feedback'>El nombre no puede estar vacio</div>");
+                }
+            %>
         </div>
         <input type="submit" class="btn btn-success" value="Enviar">
     </form>
