@@ -42,8 +42,8 @@
             <label for="price" class="form-label">Precio</label>
             <input type="text" class="form-control <% if(errores!= null && errores.containsKey("price")) out.println("is-invalid"); %>" id="price" name="price" placeholder="$1,000.00">
             <%
-                if (errores!= null && errores.containsKey("name")){
-                    out.println("<div class='invalid-feedback'>El nombre no puede estar vacio</div>");
+                if (errores!= null && errores.containsKey("price")){
+                    out.println("<div class='invalid-feedback'>El precio no puede estar vacio</div>");
                 }
             %>
         </div>
@@ -52,8 +52,8 @@
             <input type="text" class="form-control <% if(errores!= null && errores.containsKey("manufacturer")) out.println("is-invalid"); %>" id="manufacturer" name="manufacturer"
                    placeholder="Nombre de la compañia">
             <%
-                if (errores!= null && errores.containsKey("name")){
-                    out.println("<div class='invalid-feedback'>El nombre no puede estar vacio</div>");
+                if (errores!= null && errores.containsKey("manufacturer")){
+                    out.println("<div class='invalid-feedback'>Debes ingresar el nombre del fabricante</div>");
                 }
             %>
         </div>
